@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GabrielaArt Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdf2f8; /* Fundo rosado suave */
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-active {
+            color: #db2777; /* Rosa escuro */
+            transform: translateY(-5px);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="pb-24">
+
+    <header class="glass sticky top-0 z-50 p-4 flex justify-between items-center px-6">
+        <h1 class="text-xl font-semibold text-pink-600">GabrielaArt <span class="font-light text-gray-500">Studio</span></h1>
+        <div class="relative">
+            <i class="fa-regular fa-bell text-xl text-gray-600"></i>
+            <span class="absolute -top-1 -right-1 bg-red-500 w-2 h-2 rounded-full"></span>
+        </div>
+    </header>
+
+    <main class="p-4 max-w-md mx-auto">
+        
+        <section id="home" class="tab-content active space-y-6">
+            <div class="rounded-2xl overflow-hidden shadow-lg relative">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80" alt="Banner" class="w-full h-40 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                    <p class="text-white font-medium text-lg">Coleção Primavera 2026 🌸</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-pink-100">
+                    <img src="https://images.unsplash.com/photo-1632345031435-81979cd75139?auto=format&fit=crop&w=200&q=80" class="rounded-lg mb-2">
+                    <h3 class="text-sm font-semibold">Kit Verniz Gloss</h3>
+                    <p class="text-pink-600 font-bold">R$ 89,90</p>
+                    <button class="mt-2 w-full bg-pink-500 text-white py-1 rounded-lg text-xs">Comprar Pix/Cartão</button>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-pink-100">
+                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=200&q=80" class="rounded-lg mb-2">
+                    <h3 class="text-sm font-semibold">Esmalte Nude Art</h3>
+                    <p class="text-pink-600 font-bold">R$ 24,90</p>
+                    <button class="mt-2 w-full bg-pink-500 text-white py-1 rounded-lg text-xs">Comprar Pix/Cartão</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulator" class="tab-content space-y-4">
+            <div class="bg-indigo-900 text-white p-6 rounded-2xl text-center shadow-xl">
+                <i class="fa-solid fa-wand-magic-sparkles text-4xl mb-3 text-pink-400"></i>
+                <h2 class="text-xl font-bold">Simulador de Unhas IA</h2>
+                <p class="text-sm opacity-80 mb-4">Teste cores e designs em tempo real usando sua câmera.</p>
+                <button class="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-full font-medium transition">Iniciar Scanner</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+                <div class="h-20 bg-pink-200 rounded-lg flex items-center justify-center text-xs text-pink-800">Francesinha</div>
+                <div class="h-20 bg-pink-300 rounded-lg flex items-center justify-center text-xs text-pink-800">Degradê</div>
+                <div class="h-20 bg-pink-400 rounded-lg flex items-center justify-center text-xs text-white">Stiletto</div>
+            </div>
+        </section>
+
+        <section id="calendar" class="tab-content space-y-4">
+            <h2 class="text-lg font-semibold text-gray-700">Agendar Horário</h2>
+            <div class="bg-white p-4 rounded-2xl shadow-sm">
+                <input type="date" class="w-full border-none focus:ring-0 text-gray-600">
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+                <button class="p-2 border border-pink-200 rounded-lg text-sm hover:bg-pink-500 hover:text-white transition">09:00</button>
+                <button class="p-2 border border-pink-200 rounded-lg text-sm hover:bg-pink-500 hover:text-white transition">10:30</button>
+                <button class="p-2 bg-gray-100 text-gray-400 rounded-lg text-sm cursor-not-allowed">14:00 (Indisp.)</button>
+            </div>
+            <button class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold shadow-lg shadow-pink-200">Confirmar Agendamento</button>
+        </section>
+
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 glass h-20 flex justify-around items-center px-4 rounded-t-3xl shadow-2xl border-t">
+        <button onclick="openTab('home')" class="flex flex-col items-center gap-1 text-gray-400 transition-all active:scale-95">
+            <i class="fa-solid fa-shop text-xl"></i>
+            <span class="text-[10px]">Loja</span>
+        </button>
+        
+        <button onclick="openTab('simulator')" class="flex flex-col items-center gap-1 text-gray-400 transition-all">
+            <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+            <span class="text-[10px]">Simular</span>
+        </button>
+
+        <button class="bg-pink-600 w-12 h-12 rounded-full -mt-10 flex items-center justify-center text-white shadow-lg shadow-pink-300 border-4 border-[#fdf2f8]">
+            <i class="fa-solid fa-plus text-xl"></i>
+        </button>
+
+        <button onclick="openTab('calendar')" class="flex flex-col items-center gap-1 text-gray-400 transition-all">
+            <i class="fa-solid fa-calendar-days text-xl"></i>
+            <span class="text-[10px]">Agenda</span>
+        </button>
+
+        <button onclick="openTab('profile')" class="flex flex-col items-center gap-1 text-gray-400 transition-all">
+            <i class="fa-solid fa-user text-xl"></i>
+            <span class="text-[10px]">Menu</span>
+        </button>
+    </nav>
+
+    <script>
+        function openTab(tabId) {
+            // Esconde todos
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Mostra o selecionado
+            const target = document.getElementById(tabId);
+            if(target) target.classList.add('active');
+
+            // Feedback visual nos ícones (simplificado)
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('text-pink-600');
+            });
+        }
+    </script>
+</body>
+</html>
